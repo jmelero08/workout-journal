@@ -11,15 +11,32 @@ class UsersController < ApplicationController
             puts session
             redirect "users/#{@user.id}"
         else
-
+            
         end 
     end
 
     get '/signup' do
-
+        erb :signup 
     end 
 
+    post '/users' do
+        if params[:name] != "" && params[:email] != "" && params[:password] != ""
+            @user = User.create(params)
+            session[:user_id] = @user.id
+            redirect "/users/#{@user.id}"
+        else
+            redirect '/signup'
+        end 
+    end
+
     get '/users/:id' do
-        "this will be the user show route"
+        @user = User.find_by(id: params[:id])
+        # redirect_if_not_logged_in
+        erb :'/users/show'
+    end
+
+    get '/logout' do
+        session.clear
+        redirect '/'
     end
 end 
