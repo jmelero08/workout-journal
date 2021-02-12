@@ -21,4 +21,8 @@ class WorkoutController < ApplicationController
         @workout_entry = WorkoutEntry.find(params[:id])
         erb :'/workout_entries/show'
     end
+
+    get '/workout_entries/:id/edit' do
+        erb :'/workout_entries/edit'
+      end
 end
