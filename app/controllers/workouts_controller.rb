@@ -48,6 +48,17 @@ class WorkoutController < ApplicationController
         end
     end
 
+    delete '/workout_entries/:id' do
+        set_workout_entry
+        if authorized_to_edit?(@workout_entry)
+            @workout_entry.destroy
+            #flash[:message] = "Successfully deleted this workout."
+            redirect '/workout_entries'
+        else 
+            redirect '/workout_entries'
+        end 
+    end
+
 
     private 
 
