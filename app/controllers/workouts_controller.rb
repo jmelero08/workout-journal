@@ -1,5 +1,11 @@
 class WorkoutController < ApplicationController
 
+
+    get '/workout_entries' do
+        @workout_entries = WorkoutEntry.all 
+        erb :'workout_entries/index'
+    end
+
     get '/workout_entries/new' do
         redirect_if_not_logged_in
         erb :'/workout_entries/new'

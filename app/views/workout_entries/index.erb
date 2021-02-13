@@ -1,1 +1,8 @@
-This is an index folder. 
+All your amazing work!
+
+<% @workout_entries.each do |workout_entry| %>
+    <h4><a href="/workout_entries/<%= workout_entry.id %>"><%= workout_entry.created_at %></a></h4>
+    <h5><%= workout_entry.exercise %></h5>
+    <p><%= workout_entry.reps %><p>
+    <p>By <%= workout_entry.user.name %></p>
+<% end %>    

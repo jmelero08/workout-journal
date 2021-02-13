@@ -1,8 +1,16 @@
-Show workout entries. 
+Your Workout 
 
+<br></br>
 <p><%= @workout_entry.exercise %></p>
 
 <p><%= @workout_entry.reps %></p>
 
-Edit 
-<a href="/workout_entries/<%= @workout_entry.id %>/edit">Edit Workout</a>
+
+<% if authorized_to_edit?(@workout_entry) %>
+  <a href="/workout_entries/<%= @workout_entry.id %>/edit">Edit Entry</a>
+  <br><br>
+  <form class="" action="/workout_entries/<%= @workout_entry.id %>" method="post">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" name="" value="Delete this Entry">
+  </form>
+<% end %>
