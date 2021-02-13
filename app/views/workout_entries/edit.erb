@@ -1,1 +1,10 @@
-edit form 
+Edit workout entry 
+
+<form class="" action="/workout_entries/<%= @workout_entry.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <label for="exercise">Exercise:</label>
+  <input type="text" name="exercise" value="<%= @workout_entry.exercise %>">
+  <label for="reps">Reps:</label>
+  <input type="text" name="reps" value="<%= @workout_entry.reps %>">
+  <input type="submit" name="" value="Edit Exercise">
+</form>
