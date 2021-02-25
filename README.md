@@ -1,4 +1,12 @@
-I app where you can signup, login, and store your workouts. Users can also delete and edit their own entries. 
+A app where you can signup, login, and store your workouts. Users can also delete and edit their own workouts. When viewing thier workouts, users can also view everyone elses workouts, this can be used to promote a friendly competition between users/friends, or to give other people ideas on certain workouts.  
+
+To Start
+
+To start using the app, clone this repo and run bundle install. Then run shotgun in the terminal and type localhost:9393 in your browser. This should show the app is up and running, and ready to use. 
+
+Contributing
+
+Please feel free to contribute to the app with new ideas or improvments. Just fork, clone and submit a PR. 
 
 LICENSE
 
