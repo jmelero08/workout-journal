@@ -5,6 +5,7 @@ Your Workout:
 
 <p><%= @workout_entry.reps %></p>
 
+<p><%= @workout_entry.formatted_created_at %></p>
 
 <% if authorized_to_edit?(@workout_entry) %>
   <a href="/workout_entries/<%= @workout_entry.id %>/edit">Edit Entry</a>
