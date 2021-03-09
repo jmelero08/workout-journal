@@ -44,8 +44,10 @@ class WorkoutController < ApplicationController
         set_workout_entry
         if @workout_entry.user == current_user && params[:exercise] != "" && params[:reps] != ""
             @workout_entry.update(exercise: params[:exercise], reps: params[:reps])
+            flash[:message] = "Successfully edited this workout."
             redirect "/workout_entries/#{@workout_entry.id}"
         else
+            flash[:errors] = "Cannot edit someone else's workout!"
             redirect "users/#{current_user.id}"
         end
     end
@@ -61,13 +63,7 @@ class WorkoutController < ApplicationController
             redirect '/workout_entries'
         end 
     end
-
-
-    private 
-
-    def set_workout_entry
-        @workout_entry = WorkoutEntry.find(params[:id])
-    end
+    
 end
 
 

@@ -43,6 +43,10 @@ class ApplicationController < Sinatra::Base
         redirect "/users/#{current_user.id}"
       end
     end
+
+    def set_workout_entry
+      @workout_entry = WorkoutEntry.find(params[:id])
+    end
   end
 
 end
